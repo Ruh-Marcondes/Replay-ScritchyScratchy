@@ -2,7 +2,6 @@ package com.ruhmarcondes.game;
 
 import java.util.Scanner;
 
-import com.ruhmarcondes.game.*;
 
 public class Main {
 
@@ -22,8 +21,18 @@ public class Main {
                 break;
             case 2:
                 //upgradar 
+                System.out.println("VAMOS UPGRADAR:==========");
+                System.out.println("10. LUCK");
+                System.out.println("11. COIN");
                 if (Integer.parseInt(sc.nextLine()) == 10) {
                     //Upgrade luck
+                    if(upgrade.getLevelLuckcost()<p1.getMoney()) {
+                        p1.setMoney(p1.getMoney()-upgrade.getLevelLuckcost());
+                        p1.setLuck(p1.getLuck()+1);
+
+                    }else{
+                        System.out.println("Você não pode sar upgrade yeat! ");
+                    }
                 }
                 break;
             default:
@@ -31,7 +40,7 @@ public class Main {
         }
 
     } while (Integer.parseInt(sc.nextLine())!= 0);
-    sc.close();
+    sc.close();  
     System.out.println("Saindo do game");
 
     }
